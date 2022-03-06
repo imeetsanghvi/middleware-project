@@ -29,7 +29,8 @@ async function deleteStudentById(student_id = required("student_id")){
             .then(
                 resp => {
                     // query successful
-                    console.info(`${resp.rowsAffected} rows deleted`)
+                    console.log(`${resp.rowsAffected} rows deleted`)
+                    return `${resp.rowsAffected} rows deleted`
 
                 }
             )
@@ -64,11 +65,12 @@ async function insertStudent(...params){
                 resp => {
                     // query successful
                     console.info(`${resp.rowsAffected} rows inserted`)
+                    return `${resp.rowsAffected} rows inserted`
 
                 }
             )
             .catch(
-                err => console.error("Query not execute \n" + err)
+                err => console.error("Query not executed \n" + err)
             )
         }
     )
